@@ -1,0 +1,10 @@
+---
+# handlers file for percona-server
+#
+- name: Restart mysqld.service
+  service:
+    name="mysqld"
+    state=restarted
+  become: yes
+  become_method: sudo
+

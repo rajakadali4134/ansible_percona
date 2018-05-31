@@ -1,0 +1,4 @@
+---
+# defaults file for percona-server
+#
+#percona_mysql_repo: "https://www.percona.com/redir/downloads/percona-release/{{ ansible_os_family }}/0.1-4/percona-release-0.1-4.noarch.rpm"

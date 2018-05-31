@@ -1,0 +1,33 @@
+---
+# vars file for percona-server
+#
+
+epel_repo: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm"
+
+percona_mysql_repo: "https://www.percona.com/redir/downloads/percona-release/{{ ansible_os_family|lower }}/0.1-4/percona-release-0.1-4.noarch.rpm"
+
+percona_mysql_packages:
+        - Percona-Server-shared-57
+        - Percona-Server-client-57
+        - Percona-Server-server-57
+
+percona_mysql_additional_packages:
+        - MySQL-python
+        - percona-toolkit
+
+percona_mysql_backup_packages:
+        - percona-xtrabackup
+        - qpress
+
+percona_mysql_data_dir:
+  comment:
+  option: datadir
+  value: /var/lib/mysql
+
+percona_mysql_tmp_dir:
+  comment:
+  option: tmpdir
+  value: /var/lib/mysql-tmp
+
+
+root_db_password: "Arcind@123"

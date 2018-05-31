@@ -1,0 +1,28 @@
+---
+# tasks file for percona-server
+#
+
+#- name: add percona repository
+#  include: percona_repo.yml
+
+#- name: Install percona server packages
+#  include: install_percona.yml
+
+#- name: Load Default Mysql Configuration file
+#  include: load_config.yml
+##  template: src=my.cnf.j2 dest=/etc/my.cnf
+
+- name: start percona server
+  include: start_percona.yml
+
+
+
+
+
+#- name: test connection
+#  ping: 
+
+#- name: create file
+#  file: path=/tmp/raja_su state=touch mode=777
+#  become: yes
+#  become_method: sudo 

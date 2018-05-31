@@ -1,0 +1,5 @@
+---
+- hosts: raja
+  remote_user: rajak
+  roles:
+    - ../percona-server

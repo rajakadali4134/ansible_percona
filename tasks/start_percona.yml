@@ -1,0 +1,32 @@
+---
+
+#- name: install mysql system files
+#  command:
+#    mysqld --initialize-insecure --user=mysql --datadir={{ percona_mysql_data_dir.value }}
+#    creates="{{ percona_mysql_data_dir.value }}/mysql"
+#  become: yes
+#  become_method: sudo
+
+- name: start percona mysql
+  service:
+    name="mysqld"
+    state=started
+  become: yes
+  become_method: sudo
+
+- name: Update MySQL root Password
+  mysql_user: 
+    name=root
+    host={{ item }}
+    password={{ root_db_password }}
+    check_implicit_admin=yes
+    login_user=root
+    #    state=present
+  with_items:
+    - 127.0.0.1
+    - ::1
+    - localhost
+  notify:
+    - Restart mysqld.service
+
+

@@ -1,0 +1,29 @@
+---
+
+#- become: yes
+#  become_method: sudo
+
+- name: install percona server packages
+  yum: 
+    name={{ item }}
+    state=present
+  become: yes
+  become_method: sudo
+  with_items: "{{ percona_mysql_packages }}"
+
+- name: Install percona additional packages
+  yum:
+    name={{ item }}
+    state=present
+  become: yes
+  become_method: sudo
+  with_items: "{{ percona_mysql_additional_packages }}"
+
+- name: Install percona backup packages
+  yum:
+    name={{ item }}
+    state=present
+  become: yes
+  become_method: sudo
+  with_items: "{{ percona_mysql_backup_packages }}"
+
